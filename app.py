@@ -43,18 +43,98 @@ assim processamentos posteriores.
 
  ''')
  
-option = st.radio('O arquivo está no formato XLSX?', ['Sim','Não'])
-
-if option == 'Não':
-
-    print(st.markdown('''
-                     **Por favor, converta o arquivo para `XLSX` e
-                     faça o upload.**
-                  '''))
+option = st.radio('Que tipo de dado você quer processar?', ['PZE','PZC'])
 
 uploaded_file = st.file_uploader("Escolha um arquivo")
 
-if option == 'Sim':
+if option == 'PZC':
+
+   if uploaded_file is not None:
+            
+        df =  pd.read_excel(uploaded_file, sheet_name = None)
+        xlsx = pd.ExcelFile(uploaded_file)
+        
+        sheets = xlsx.sheet_names
+        
+        print(st.markdown('''
+                     **Iniciando o processamento dos dados de PZC. Isso pode levar alguns instantes!**
+                  '''))
+        
+        for index, item in enumerate(sheets):
+            try:    
+                #fazendo um dataframe para cada aba presente na planilha
+                df_1 = df[sheets[index]]                   
+
+                #aplicando o cabecalho
+
+                x = df_1[df_1['Unnamed: 1'] == 'Data'].index.to_list()
+
+                df_1.columns = df_1.iloc[x[1]]
+                
+                y = x[1]+1
+
+                 #removendo as 42 colunas acima que não são necessárias
+                df_1.drop(index = df_1.index[:y], axis = 0, inplace = True)
+
+                #remover a primeira coluna vazia e também outras possíveis colunas 
+                df_1.dropna(how='all', axis=1, inplace=True)
+
+
+                #criando uma coluna com o nome do instrumento
+                df_1['INSTRUMENTO'] = item 
+
+                #reorganizando as colunas
+                df_1 = df_1[['INSTRUMENTO','Data', 
+                             'LEITURA_SENSOR/DEPTH(m)',
+                             'COTA_LOCAL/ELEVATION(m)',
+                             'MCA/WATER LEVEL(m)']]
+
+               
+                #salvando em diferentes DFs
+                df_1.to_csv('pzc/df_{}.csv'.format(item), index = False, encoding = 'utf-8')
+            except:
+                
+                pass
+            
+        path_sc = 'pzc'
+        
+        files = glob.glob(path_sc + "/*.csv") #pegando os arquivos com o seu path
+
+        filename = [] #criando lista vazia
+
+
+        #criando loop para criar uma lista com todos os paths dos arquivos
+        for file in files:
+            file_List = (file)
+            filename.append(file_List)
+
+
+        #lista vazia
+        frames = []
+
+        #criando loop para concatenar todos os arquivos dentro de filename
+        for arquivo in filename:
+            print('Concatenando {}'.format(arquivo))
+            #lendo o arquivo
+            df2 = pd.read_csv(arquivo)
+          
+             #appending   
+            frames.append(df2)
+        #concatenando todos os arquivos
+        df = pd.concat(frames, axis=0, ignore_index = True)
+        
+        #salvando o aquivo em apenas um
+        df.to_csv('tabela_pzc_concatenada.csv', index = False )
+        
+        towrite = io.BytesIO()
+        downloaded_file = df.to_excel(towrite, encoding='utf-8', index=False, header=True)
+        towrite.seek(0)  # reset pointer
+        b64 = base64.b64encode(towrite.read()).decode()  # some strings
+        linko= f'<a href="data:application/vnd.openxmlformats-officedocument.spreadsheetml.sheet;base64,{b64}" download="SHMS_PZC_concatenado.xlsx">📂 Baixar Tabela Concatenada</a>'
+        st.markdown(linko, unsafe_allow_html=True)
+
+
+if option == 'PZE':
 
    
     
@@ -66,7 +146,7 @@ if option == 'Sim':
         sheets = xlsx.sheet_names
         
         print(st.markdown('''
-                     **Iniciando o processamento. Isso pode levar alguns instantes!**
+                     **Iniciando o processamento dos dados de PZE. Isso pode levar alguns instantes!**
                   '''))
         
         for index, item in enumerate(sheets):
@@ -113,7 +193,7 @@ if option == 'Sim':
                 #salvando em diferentes DFs
                 df_1.to_csv('instrumentos/df_{}.csv'.format(item), index = False, encoding = 'utf-8')
             except:
-                #print('Erro na aba {}'.format(item)
+                
                 pass
                 
                 
@@ -148,13 +228,13 @@ if option == 'Sim':
         df = pd.concat(frames, axis=0, ignore_index = True)
         
         #salvando o aquivo em apenas um
-        df.to_csv('tabela_concatenada.csv', index = False )
+        df.to_csv('tabela_pze_concatenada.csv', index = False )
         
         towrite = io.BytesIO()
         downloaded_file = df.to_excel(towrite, encoding='utf-8', index=False, header=True)
         towrite.seek(0)  # reset pointer
         b64 = base64.b64encode(towrite.read()).decode()  # some strings
-        linko= f'<a href="data:application/vnd.openxmlformats-officedocument.spreadsheetml.sheet;base64,{b64}" download="SHMS_concatenado.xlsx">📂 Baixar Tabela Concatenada</a>'
+        linko= f'<a href="data:application/vnd.openxmlformats-officedocument.spreadsheetml.sheet;base64,{b64}" download="SHMS_PZE_concatenado.xlsx">📂 Baixar Tabela Concatenada</a>'
         st.markdown(linko, unsafe_allow_html=True)
 
 
