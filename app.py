@@ -95,7 +95,7 @@ if option == 'PZC':
             except:
                 
                 pass
-            
+        print('Organização das planilhas já foi')    
         path_sc = 'pzc'
         
         files = glob.glob(path_sc + "/*.csv") #pegando os arquivos com o seu path
@@ -114,7 +114,7 @@ if option == 'PZC':
 
         #criando loop para concatenar todos os arquivos dentro de filename
         for arquivo in filename:
-            print('Concatenando {}'.format(arquivo))
+            
             #lendo o arquivo
             df2 = pd.read_csv(arquivo)
           
