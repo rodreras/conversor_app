@@ -139,8 +139,8 @@ if option == 'PZE':
     if uploaded_file is not None:
 
         print(st.markdown('''
-                     **▶️ Iniciando o processamento dos dados de PZE...
-                       ▶️ Isso pode levar alguns instantes!**
+                     ▶️ Iniciando o processamento dos dados de PZC...\n
+                       ▶️ Isso pode levar alguns instantes!
                   '''))
                   
         df =  pd.read_excel(uploaded_file, sheet_name = None)
@@ -239,14 +239,13 @@ if option == 'PZE':
 #opção para processar os dados de INAs
 if option == 'INAs':
     if uploaded_file is None:
-        print(st.markdown(''' ❌ Por favor, insira um arquivo de até 200MB!'''))
+        print(st.markdown(''' ❌ Essa conversão ainda não está diponível!'''))
         
     if uploaded_file is not None:
     
             print(st.markdown('''
-                         **▶️ Iniciando o processamento dos dados dos INAs... 
-                           ▶️ Isso pode levar alguns instantes!**
-                      '''))  
+                     ▶️ Essa conversão ainda não está diponível!
+                  '''))  
                       
             df =  pd.read_excel(uploaded_file, sheet_name = None)
             xlsx = pd.ExcelFile(uploaded_file)
