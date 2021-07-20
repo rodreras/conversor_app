@@ -11,29 +11,19 @@ import glob
 import base64
 import io 
 
+#configurando a página
+st.set_page_config(page_title = 'MDGeo SHMS Converter')
 
-st.set_page_config(page_title = 'MDGeo Converter')
-logo = 'mdgeo.png'
+#carregando a logo
+logo = 'MDGEO.jpeg'
+
+
 #Título e Subtítulo
+st.title('MDGeo Apps')
+st.subheader('Conversor de Dados do SHMS')
 
 
-col1, col2 = st.beta_columns([1,8])
-
-col2.header('MDGeo Apps')
-col1.image(logo, width = 90)
- 
- 
-
-#st.image(logo)
-#st.title('MDGeo Apps')
-
-st.header('Conversor de Dados do SHMS')
-
-
-
-
-
-
+#Introdução 
 st.markdown('''
 Aplicação desenvolvida pelo Setor de Modelagem da MDGeo com intuito de
 facilitar o processamento dos dados da plataforma SHMS. Ao inserir os dados, 
@@ -42,23 +32,29 @@ assim processamentos posteriores.
 
 
  ''')
- 
-option = st.radio('Que tipo de dado você quer processar?', ['PZE','PZC'])
 
+#colocando opção de escolha para processamento dos dados
+option = st.radio('Que tipo de dado você quer processar?', ['PZE','PZC', 'INAs'])
+
+#dando a opção de fazer o upload dos dados
 uploaded_file = st.file_uploader("Escolha um arquivo")
 
+#opção para processar dados do PZC
 if option == 'PZC':
-
+   if uploaded_file is None:
+        print(st.markdown(''' ❌ Por favor, insira um arquivo de até 200MB!''')) 
+        
    if uploaded_file is not None:
-            
+   
+        print(st.markdown('''
+                     ▶️ Iniciando o processamento dos dados de PZC...\n
+                       ▶️ Isso pode levar alguns instantes!
+                  '''))   
+                  
         df =  pd.read_excel(uploaded_file, sheet_name = None)
         xlsx = pd.ExcelFile(uploaded_file)
         
         sheets = xlsx.sheet_names
-        
-        print(st.markdown('''
-                     **Iniciando o processamento dos dados de PZC. Isso pode levar alguns instantes!**
-                  '''))
         
         for index, item in enumerate(sheets):
             try:    
@@ -95,6 +91,8 @@ if option == 'PZC':
             except:
                 
                 pass
+                
+                
         print('Organização das planilhas já foi')    
         path_sc = 'pzc'
         
@@ -117,9 +115,9 @@ if option == 'PZC':
             
             #lendo o arquivo
             df2 = pd.read_csv(arquivo)
-          
-             #appending   
+            #appending   
             frames.append(df2)
+            
         #concatenando todos os arquivos
         df = pd.concat(frames, axis=0, ignore_index = True)
         
@@ -133,22 +131,23 @@ if option == 'PZC':
         linko= f'<a href="data:application/vnd.openxmlformats-officedocument.spreadsheetml.sheet;base64,{b64}" download="SHMS_PZC_concatenado.xlsx">📂 Baixar Tabela Concatenada</a>'
         st.markdown(linko, unsafe_allow_html=True)
 
-
+#opção para processar dados do PZE
 if option == 'PZE':
-
-   
-    
+    if uploaded_file is None:
+        print(st.markdown(''' ❌ Por favor, insira um arquivo de até 200MB!'''))
+        
     if uploaded_file is not None:
-            
+
+        print(st.markdown('''
+                     **▶️ Iniciando o processamento dos dados de PZE...
+                       ▶️ Isso pode levar alguns instantes!**
+                  '''))
+                  
         df =  pd.read_excel(uploaded_file, sheet_name = None)
         xlsx = pd.ExcelFile(uploaded_file)
         
         sheets = xlsx.sheet_names
-        
-        print(st.markdown('''
-                     **Iniciando o processamento dos dados de PZE. Isso pode levar alguns instantes!**
-                  '''))
-        
+           
         for index, item in enumerate(sheets):
             try:    
                 #fazendo um dataframe para cada aba presente na planilha
@@ -237,17 +236,43 @@ if option == 'PZE':
         linko= f'<a href="data:application/vnd.openxmlformats-officedocument.spreadsheetml.sheet;base64,{b64}" download="SHMS_PZE_concatenado.xlsx">📂 Baixar Tabela Concatenada</a>'
         st.markdown(linko, unsafe_allow_html=True)
 
+#opção para processar os dados de INAs
+if option == 'INAs':
+    if uploaded_file is None:
+        print(st.markdown(''' ❌ Por favor, insira um arquivo de até 200MB!'''))
+        
+    if uploaded_file is not None:
+    
+            print(st.markdown('''
+                         **▶️ Iniciando o processamento dos dados dos INAs... 
+                           ▶️ Isso pode levar alguns instantes!**
+                      '''))  
+                      
+            df =  pd.read_excel(uploaded_file, sheet_name = None)
+            xlsx = pd.ExcelFile(uploaded_file)
+            
+            sheets = xlsx.sheet_names
+            
+            
 
+#Configurando barra lateral
+
+#colocando a imagem
+st.sidebar.image('MDGEO.jpeg', width = 250)
+
+#título do sobre o app
 st.sidebar.title('Sobre o app')
-
 st.sidebar.markdown('''
 O app tem objetivo tonar o processamento e compilação de dados mais veloz, 
-fazendo com que foquemos no que realmente importa: **analisar os dados**.
+fazendo com que foquemos no que realmente importa: **analisar os dados**.''')
 
-Em caso de bugs ou sugestões de melhorias, por favor, entre em contato pelo e-mail:
-`rodrigo.brusts@mdgeomam.com.br`
-''')
-
-
+#título do suporte  
+st.sidebar.title('Suporte')
+st.sidebar.markdown(''' 
+                    Em caso de bugs ou sugestões de melhorias, por favor, entre em contato pelo e-mail
+**`rodrigo.brusts@mdgeomam.com.br`**, com o título de **Suporte App SHMS**
+                    ''')
+                    
+#título sobre o código
 st.sidebar.title("Código")
 st.sidebar.markdown("[![Github Badge] (https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white&link=https://github.com/rodreras)](https://github.com/rodreras/conversor_app)")
