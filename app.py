@@ -265,6 +265,12 @@ st.sidebar.markdown('''
 O app tem objetivo tonar o processamento e compilação de dados mais veloz, 
 fazendo com que foquemos no que realmente importa: **analisar os dados**.''')
 
+#título do manual
+st.sidebar.title('Manual')
+st.sidebar.markdown('''
+Para garantir o uso ideal do app, evitando _bugs_ ou o _funcionamento indesejado_, por gentileza, leia o manual
+''')
+
 #título do suporte  
 st.sidebar.title('Suporte')
 st.sidebar.markdown(''' 
