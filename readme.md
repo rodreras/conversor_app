@@ -13,13 +13,15 @@ Para seu funcionamento ideal, recomenda-se a leitura da tópico abaixo [Como Usa
 
 `1.` Dados de PZE
 
-|Data|COTA/ELEVATION(m)|THERMISTOR/ELECTRICAL RESISTANCE(Ohm)|MCA/WATER LEVEL(m)|FREQUENCIA/FREQUENCY(Hz)|KPA/PRESSURE(kPA)|TEMPERATURA/TEMPERATURE(°C)|	COTA_LOCAL/ELEVATION(m)|
-|---|------------------|-------------------------------------|------------------|-------------------------|-----------------|---------------------------|
+- `a)` Primeiro passo é coletar os dados na plataforma SHMS iguais as da tabela abaixo:
+
+|Data|COTA/ELEVATION(m)|THERMISTOR/ELECTRICAL RESISTANCE(Ohm)|MCA/WATER LEVEL(m)|FREQUENCIA/FREQUENCY(Hz)|KPA/PRESSURE(kPA)|TEMPERATURA/TEMPERATURE(°C)|COTA_LOCAL/ELEVATION(m)|
+|----|-----------------|-------------------------------------|------------------|------------------------|-----------------|---------------------------|-----------------------|
 
 
 `2.` Dados de PZC
 
-- `a)` Primeiro de tudo, para converter os dados de PZC, é preciso selecionar na plataforma SHMS as seguintes colunas
+- `a)` Primeiro de tudo, para converter os dados de PZC, é preciso selecionar na plataforma SHMS as seguintes colunas:
 
 |Data|LEITURA_SENSOR/DEPTH(m)|COTA_LOCAL/ELEVATION(m)|MCA/WATER LEVEL(m)|
 |----|-----------------------|-----------------------|------------------|
