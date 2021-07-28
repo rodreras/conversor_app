@@ -1,20 +1,21 @@
 # Manual do Usuário - MDGeo SHSMS Converter
 _______________
 
-
-## [Sobre o App](#app)
+<a id='app'></a>
+## [Sobre o App]
 
 Este aplicativo foi desenvolvido pelo setor de Modelagem da MDGeo com o objetivo de facilitar o tratamento dos dados coletados no sistema SHMS. Dessa forma, é possível filtrar e concatenar dezenas, ou até mesmo centenas de colunas em apenas uma única planilha. 
 
 Para seu funcionamento ideal, recomenda-se a leitura da tópico abaixo [Como Usar](#uso), garantindo assim o mínimo de bug. Porém, ainda que você siga todos os passos corretamente e mesmo assim apresente erros, siga os passos do [Suporte](#sup)
 
+<a id='uso'></a>
 ## [Como Usar](#uso)
 
-`1.` [Dados de PZE](#pze)
+`1.` [Dados de PZE]
 
 
 
-`2.` [Dados de PZC](#pzc)
+`2.` [Dados de PZC]
 
 - `a)` Primeiro de tudo, para converter os dados de PZC, é preciso selecionar na plataforma SHMS as seguintes colunas
 
@@ -24,15 +25,15 @@ Para seu funcionamento ideal, recomenda-se a leitura da tópico abaixo [Como Usa
 Caso essas colunas não sejam respeitadas, muito provavelmente os dados não vão concatenar da forma correta
 
 
-`3.` [Dados de NR](#nr)
+`3.` [Dados de NR]
 
 
-`4.` [Dados de INA](#ina)
+`4.` [Dados de INA]
 
 
-`5.` [Dados de MNA](#mna)
+`5.` [Dados de MNA]
 
-
+<a id='sup'></a>
 ## Suporte(#sup)
 
 Em caso de bugs ou sugestões de melhorias, por favor, entre em contato pelo e-mail
@@ -52,6 +53,7 @@ Em caso de bugs ou sugestões de melhorias, por favor, entre em contato pelo e-m
 	
 	- Você selecionou a opção do instrumento corretamente? 
 
+<a id='dev'></a>
 ## Desenvolvimento
 
 **Setor de Modelagem Numérica**
