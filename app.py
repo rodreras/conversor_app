@@ -268,7 +268,7 @@ fazendo com que foquemos no que realmente importa: **analisar os dados**.''')
 #título do manual
 st.sidebar.title('Manual')
 st.sidebar.markdown('''
-Para garantir o uso ideal do app, evitando _bugs_ ou o _funcionamento indesejado_, por gentileza, leia o manual
+Para garantir o uso ideal do app, evitando o _funcionamento indesejado_, por gentileza, [leia o manual](https://github.com/rodreras/conversor_app/blob/main/readme.md)
 ''')
 
 #título do suporte  
