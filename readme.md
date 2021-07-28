@@ -2,7 +2,7 @@
 _______________
 
 <a id='app'></a>
-## [Sobre o App]
+## [Sobre o App](#app)
 
 Este aplicativo foi desenvolvido pelo setor de Modelagem da MDGeo com o objetivo de facilitar o tratamento dos dados coletados no sistema SHMS. Dessa forma, é possível filtrar e concatenar dezenas, ou até mesmo centenas de colunas em apenas uma única planilha. 
 
