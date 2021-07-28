@@ -11,11 +11,11 @@ Para seu funcionamento ideal, recomenda-se a leitura da tópico abaixo [Como Usa
 <a id='uso'></a>
 ## [Como Usar](#uso)
 
-`1.` [Dados de PZE]
+`1.` Dados de PZE
 
 
 
-`2.` [Dados de PZC]
+`2.` Dados de PZC
 
 - `a)` Primeiro de tudo, para converter os dados de PZC, é preciso selecionar na plataforma SHMS as seguintes colunas
 
@@ -25,33 +25,37 @@ Para seu funcionamento ideal, recomenda-se a leitura da tópico abaixo [Como Usa
 Caso essas colunas não sejam respeitadas, muito provavelmente os dados não vão concatenar da forma correta
 
 
-`3.` [Dados de NR]
+`3.` Dados de NR
 
+`Ferramenta ainda em desenvolvimento`
 
-`4.` [Dados de INA]
+`4.` Dados de INA
 
+`Ferramenta ainda em desenvolvimento`
 
-`5.` [Dados de MNA]
+`5.` Dados de MNA
+
+`Ferramenta ainda em desenvolvimento`
 
 <a id='sup'></a>
-## Suporte(#sup)
+## [Suporte](#sup)
 
 Em caso de bugs ou sugestões de melhorias, por favor, entre em contato pelo e-mail
 **`rodrigo.brusts@mdgeomam.com.br`**, com o título de **Suporte App SHMS**. 
 
-	- Descreva o que aconteceu
-	
-	- Descreva o que você esperava
-	
-	- Envie prints dos erros
-	
-	- Envie prints da planilha que você inseriu
+- Descreva o que aconteceu
+
+- Descreva o que você esperava
+
+- Envie prints dos erros
+
+- Envie prints da planilha que você inseriu
 
 **Perguntas para responder antes de enviar um email**
 
-	- A planilha estava de acordo com o modelo ideal, apontado em [Como Usar](#uso)?
+- A planilha estava de acordo com o modelo ideal, apontado em [Como Usar](#uso)?
 	
-	- Você selecionou a opção do instrumento corretamente? 
+- Você selecionou a opção do instrumento corretamente? 
 
 <a id='dev'></a>
 ## Desenvolvimento
@@ -62,5 +66,9 @@ Responsável: Julio Yasbek
 
 Desenvolvimento: Rodrigo Brust
 
+<a id='ver'></a>
+## Versão
 
+Versão: `0.1`
+Update: `2021-07-28`
 
