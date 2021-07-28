@@ -13,6 +13,8 @@ Para seu funcionamento ideal, recomenda-se a leitura da tópico abaixo [Como Usa
 
 `1.` Dados de PZE
 
+|Data|COTA/ELEVATION(m)|THERMISTOR/ELECTRICAL RESISTANCE(Ohm)|MCA/WATER LEVEL(m)|FREQUENCIA/FREQUENCY(Hz)|KPA/PRESSURE(kPA)|TEMPERATURA/TEMPERATURE(°C)|	COTA_LOCAL/ELEVATION(m)|
+|---|------------------|-------------------------------------|------------------|-------------------------|-----------------|---------------------------|
 
 
 `2.` Dados de PZC
@@ -22,7 +24,7 @@ Para seu funcionamento ideal, recomenda-se a leitura da tópico abaixo [Como Usa
 |Data|LEITURA_SENSOR/DEPTH(m)|COTA_LOCAL/ELEVATION(m)|MCA/WATER LEVEL(m)|
 |----|-----------------------|-----------------------|------------------|
 
-Caso essas colunas não sejam respeitadas, muito provavelmente os dados não vão concatenar da forma correta
+Caso essas colunas não sejam respeitadas, muito provavelmente os dados não vão concatenar da forma correta.
 
 
 `3.` Dados de NR
@@ -41,21 +43,36 @@ Caso essas colunas não sejam respeitadas, muito provavelmente os dados não vã
 ## [Suporte](#sup)
 
 Em caso de bugs ou sugestões de melhorias, por favor, entre em contato pelo e-mail
-**`rodrigo.brusts@mdgeomam.com.br`**, com o título de **Suporte App SHMS**. 
+**`rodrigo.brusts@mdgeomam.com.br`**, de acordo com cada tópico específico:
 
-- Descreva o que aconteceu
+#### Para bugs, coloque o assunto do e-mail como `Suporte App SHMS - Bug`
 
-- Descreva o que você esperava
+**Siga esses passos**
 
-- Envie prints dos erros
+1 - Descreva o que aconteceu
 
-- Envie prints da planilha que você inseriu
+2 - Descreva o que você esperava
+
+3 - Envie prints dos erros
+
+4 - Envie prints da planilha que você inseriu
+
 
 **Perguntas para responder antes de enviar um email**
 
 - A planilha estava de acordo com o modelo ideal, apontado em [Como Usar](#uso)?
 	
 - Você selecionou a opção do instrumento corretamente? 
+
+#### Para sugestões, coloque o assunto do e-mail como `Suporte App SHMS - Sugestões`
+
+1 - Explique o que deseja.
+
+2 - Explique se é uma tarefa manual feita com frequência.
+
+3 - Se possível, mostre os dados antes e após o processamento desejado com prints.
+
+4 - Explique se os dados são padronizados ou não.
 
 <a id='dev'></a>
 ## Desenvolvimento
