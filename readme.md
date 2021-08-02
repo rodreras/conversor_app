@@ -11,9 +11,13 @@ Para seu funcionamento ideal, recomenda-se a leitura da tópico abaixo [Como Usa
 <a id='uso'></a>
 ## [Como Usar](#uso)
 
+#### I) Selecionando o Tipo de Instrumento
+
+O primeiro passo para que possamos converter os documentos, é escolher o tipo de equipamento. Para que a 
+conversão seja eficiente, é preciso garantir que as colunas estejam iguais aos modelos abaixo.
+
 `1.` Dados de PZE
 
-- `a)` Primeiro passo é coletar os dados na plataforma SHMS iguais as da tabela abaixo:
 
 |Data|COTA/ELEVATION(m)|THERMISTOR/ELECTRICAL RESISTANCE(Ohm)|MCA/WATER LEVEL(m)|FREQUENCIA/FREQUENCY(Hz)|KPA/PRESSURE(kPA)|TEMPERATURA/TEMPERATURE(°C)|COTA_LOCAL/ELEVATION(m)|
 |----|-----------------|-------------------------------------|------------------|------------------------|-----------------|---------------------------|-----------------------|
@@ -21,25 +25,45 @@ Para seu funcionamento ideal, recomenda-se a leitura da tópico abaixo [Como Usa
 
 `2.` Dados de PZC
 
-- `a)` Primeiro de tudo, para converter os dados de PZC, é preciso selecionar na plataforma SHMS as seguintes colunas:
+|Data|LEITURA_SENSOR/DEPTH(m)|COTA_LOCAL/ELEVATION(m)|MCA/WATER LEVEL(m)|
+|----|-----------------------|-----------------------|------------------|
+
+`3.` Dados de NR
+
+|Data|COTA_LOCAL/ELEVATION(m)|
+|----|-----------------------|
+
+`4.` Dados de INA
+
+|Data|MCA/WATER LEVEL(m)|COTA_LOCAL/ELEVATION(m)|LEITURA_SENSOR/DEPTH(m)|
+|----|-----------------------|-----------------------|------------------|
+
+`5.` Dados de MNA
 
 |Data|LEITURA_SENSOR/DEPTH(m)|COTA_LOCAL/ELEVATION(m)|MCA/WATER LEVEL(m)|
 |----|-----------------------|-----------------------|------------------|
 
-Caso essas colunas não sejam respeitadas, muito provavelmente os dados não vão concatenar da forma correta.
+#### II) Escolher o Tipo de Filtro
 
+Para facilitar a visualização e manipulação dos dados, existem duas opções de filtros: 
 
-`3.` Dados de NR
+- `Filtrados`: permite que você selecione datas para filtrar seus dados, e gere uma planilha concatenada filtrada.
 
-`Ferramenta ainda em desenvolvimento`
+- `Completos`: ao contrário da outra opção, apenas concatena os seus dados em uma única planilha.
 
-`4.` Dados de INA
+#### III) Inserir Arquivo
 
-`Ferramenta ainda em desenvolvimento`
+Por fim, para poder gerar o resultado final, você deve colocar o arquivo com extensão `xlsx`. Uma vez que o arquivo
+for carregado, o processamento iniciará.
 
-`5.` Dados de MNA
+#### IV) Resultados
 
-`Ferramenta ainda em desenvolvimento`
+- Indicador de sucesso: a porcentagem indica quantas planilhas do total foram convertidas com sucesso.
+
+- Tabela de pré-visualização da conversão.
+
+- Link para baixar a tabela.
+
 
 <a id='sup'></a>
 ## [Suporte](#sup)
