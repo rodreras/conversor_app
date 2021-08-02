@@ -1273,11 +1273,11 @@ Para garantir o uso ideal do app, evitando o _funcionamento indesejado_, por gen
 st.sidebar.title('Suporte')
 st.sidebar.markdown(''' 
                     Em caso de bugs ou sugestões de melhorias, por favor, entre em contato pelo e-mail
-**`rodrigo.brusts@mdgeomam.com.br`**, com o título de **Suporte App SHMS**
+[rodrigo.brusts@mdgeomam.com.br](https://github.com/rodreras/conversor_app#suporte).
                     ''')
                     
 #título sobre o código
 st.sidebar.title("Código")
 st.sidebar.markdown("[![Github Badge] (https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white&link=https://github.com/rodreras)](https://github.com/rodreras/conversor_app)")
 st.sidebar.markdown(''' _Versão: 0.2_''')
-st.sidebar.markdown('''_30/07/2021_ ''')
+st.sidebar.markdown('''_02/08/2021_ ''')
