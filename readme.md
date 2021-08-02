@@ -11,10 +11,13 @@ Para seu funcionamento ideal, recomenda-se a leitura da tópico abaixo [Como Usa
 <a id='uso'></a>
 ## [Como Usar](#uso)
 
-#### I) Selecionando o Tipo de Instrumento
+### I) Selecionando o Tipo de Instrumento
 
 O primeiro passo para que possamos converter os documentos, é escolher o tipo de equipamento. Para que a 
 conversão seja eficiente, é preciso garantir que as colunas estejam iguais aos modelos abaixo.
+
+![image](https://user-images.githubusercontent.com/53950449/127902743-43c58648-6c13-4c40-ba14-438c897d70d0.png)
+
 
 `1.` Dados de PZE
 
@@ -43,20 +46,30 @@ conversão seja eficiente, é preciso garantir que as colunas estejam iguais aos
 |Data|LEITURA_SENSOR/DEPTH(m)|COTA_LOCAL/ELEVATION(m)|MCA/WATER LEVEL(m)|
 |----|-----------------------|-----------------------|------------------|
 
-#### II) Escolher o Tipo de Filtro
+### II) Escolher o Tipo de Filtro
 
 Para facilitar a visualização e manipulação dos dados, existem duas opções de filtros: 
 
 - `Filtrados`: permite que você selecione datas para filtrar seus dados, e gere uma planilha concatenada filtrada.
 
+![image](https://user-images.githubusercontent.com/53950449/127902613-7b305393-864f-41cd-95f2-20a40d582154.png)
+
+
 - `Completos`: ao contrário da outra opção, apenas concatena os seus dados em uma única planilha.
 
-#### III) Inserir Arquivo
+![image](https://user-images.githubusercontent.com/53950449/127902650-792f7955-f0a7-4b80-9ada-63cf58f6f1b7.png)
+
+
+### III) Inserir Arquivo
 
 Por fim, para poder gerar o resultado final, você deve colocar o arquivo com extensão `xlsx`. Uma vez que o arquivo
 for carregado, o processamento iniciará.
+Caso não tenha nenhum arquivo carregado, um aviso será mostrado como abaixo: 
 
-#### IV) Resultados
+![image](https://user-images.githubusercontent.com/53950449/127902702-fc59bb3f-7edc-48c6-b3e7-a9b06d53cd57.png)
+
+
+### IV) Resultados
 
 - Indicador de sucesso: a porcentagem indica quantas planilhas do total foram convertidas com sucesso.
 
