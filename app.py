@@ -37,10 +37,8 @@ ou fazer um filtro de acordo com datas. Para maiores informações, [acesse o ma
 
 me1, me2 = st.beta_columns(2)
 option = me1.radio('Que tipo de dado você quer processar?', ['PZE','PZC', 'INAs','MNA','NR'])
-filtro = me2.radio('Você quer baixar os dados filtrados ou completos?', ['Filtrados','Completos'])
-#option = st.radio('Que tipo de dado você quer processar?', ['PZE','PZC', 'INAs','MNA','NR'])
+filtro = me2.radio('Você quer baixar os dados filtrados ou completos?', ['Completos','Filtrados'])
 
-#filtro = st.radio('Você quer baixar os dados filtrados ou completos?', ['Filtrados','Completos'])
 
 if filtro == 'Filtrados':
 
@@ -54,13 +52,7 @@ if filtro == 'Filtrados':
     #dando a opção de fazer o upload dos dados
     uploaded_file = st.file_uploader("Escolha um arquivo")
 
-    #ra1, ra2 = st.beta_columns(2)
-    #ra1.number_input('A planilha tem abas no início a serem removidas?',
-    #			  0)
-    #ra2.markdown('''Muitas vezes a planilha tem algumas abas iniciais com
-    #				fins introdutórios. Caso a sua planilha se enquadre nesse
-    #				cenário, por favor, indique a quantidade de abas que devem ser
-    #				puladas. Caso contrário, deixe o valor padrão `0`.''')
+    
     # opção para processar dados do PZC
     if option == 'PZC':
         if uploaded_file is None:
@@ -179,7 +171,7 @@ if filtro == 'Filtrados':
         if uploaded_file is not None:
 
             print(st.markdown('''
-                         ▶️ Iniciando o processamento dos dados de PZC...\n
+                         ▶️ Iniciando o processamento dos dados de PZE...\n
                            ▶️ Isso pode levar alguns instantes!
                       '''))
 
@@ -409,7 +401,7 @@ if filtro == 'Filtrados':
             # mostrando o df modificado
             df
             # salvando o aquivo em apenas um
-            df.to_csv('tabela_pzc_concatenada.csv', index=False)
+            df.to_csv('tabela_inas_concatenada.csv', index=False)
 
             towrite = io.BytesIO()
             downloaded_file = df.to_excel(towrite, encoding='utf-8', index=False, header=True)
@@ -427,7 +419,7 @@ if filtro == 'Filtrados':
 
         if uploaded_file is not None:
             print(st.markdown('''
-                                       ▶️ Iniciando o processamento dos dados de INA...\n
+                                       ▶️ Iniciando o processamento dos dados de NR...\n
                                          ▶️ Isso pode levar alguns instantes!
                                     '''))
             df = pd.read_excel(uploaded_file, sheet_name=None)
@@ -551,7 +543,7 @@ if filtro == 'Filtrados':
 
         if uploaded_file is not None:
             print(st.markdown('''
-                                       ▶️ Iniciando o processamento dos dados de INA...\n
+                                       ▶️ Iniciando o processamento dos dados de MNA...\n
                                          ▶️ Isso pode levar alguns instantes!
                                     '''))
             df = pd.read_excel(uploaded_file, sheet_name=None)
@@ -675,13 +667,6 @@ if filtro == 'Completos':
     #dando a opção de fazer o upload dos dados
     uploaded_file = st.file_uploader("Escolha um arquivo")
 
-    #ra1, ra2 = st.beta_columns(2)
-    #ra1.number_input('A planilha tem abas no início a serem removidas?',
-    #			  0)
-    #ra2.markdown('''Muitas vezes a planilha tem algumas abas iniciais com
-    #				fins introdutórios. Caso a sua planilha se enquadre nesse
-    #				cenário, por favor, indique a quantidade de abas que devem ser
-    #				puladas. Caso contrário, deixe o valor padrão `0`.''')
 
     #opção para processar dados do PZC
     if option == 'PZC':
@@ -796,7 +781,7 @@ if filtro == 'Completos':
         if uploaded_file is not None:
 
             print(st.markdown('''
-                         ▶️ Iniciando o processamento dos dados de PZC...\n
+                         ▶️ Iniciando o processamento dos dados de PZE...\n
                            ▶️ Isso pode levar alguns instantes!
                       '''))
 
@@ -1011,7 +996,7 @@ if filtro == 'Completos':
             # mostrando o df modificado
             df
             # salvando o aquivo em apenas um
-            df.to_csv('tabela_pzc_concatenada.csv', index=False)
+            df.to_csv('tabela_inas_concatenada.csv', index=False)
 
             towrite = io.BytesIO()
             downloaded_file = df.to_excel(towrite, encoding='utf-8', index=False, header=True)
@@ -1027,7 +1012,7 @@ if filtro == 'Completos':
 
         if uploaded_file is not None:
             print(st.markdown('''
-                                     ▶️ Iniciando o processamento dos dados de INA...\n
+                                     ▶️ Iniciando o processamento dos dados de NR...\n
                                        ▶️ Isso pode levar alguns instantes!
                                   '''))
             df = pd.read_excel(uploaded_file, sheet_name=None)
@@ -1139,7 +1124,7 @@ if filtro == 'Completos':
 
         if uploaded_file is not None:
             print(st.markdown('''
-                                     ▶️ Iniciando o processamento dos dados de INA...\n
+                                     ▶️ Iniciando o processamento dos dados de MNA...\n
                                        ▶️ Isso pode levar alguns instantes!
                                   '''))
             df = pd.read_excel(uploaded_file, sheet_name=None)
@@ -1279,5 +1264,5 @@ st.sidebar.markdown('''
 #título sobre o código
 st.sidebar.title("Código")
 st.sidebar.markdown("[![Github Badge] (https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white&link=https://github.com/rodreras)](https://github.com/rodreras/conversor_app)")
-st.sidebar.markdown(''' _Versão: 0.2_''')
-st.sidebar.markdown('''_02/08/2021_ ''')
+st.sidebar.markdown(''' _Versão: 0._''')
+st.sidebar.markdown('''_26/08/2021_ ''')
