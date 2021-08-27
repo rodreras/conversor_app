@@ -90,7 +90,7 @@ if filtro == 'Filtrados':
                     # em seguida, dizemos que as colunas do df_1 nada mais é do que a linha da segunda ocorrência do
                     # valor "data", uma vez que dependendo da aba, esse valor encontra-se em diferentes linhas'''
                     df_1.columns = df_1.iloc[x[1]]
-
+					
 					y = x[1] + 1
 					
                     # removendo as 42 colunas acima que não são necessárias
@@ -209,7 +209,7 @@ if filtro == 'Filtrados':
                     # em seguida, dizemos que as colunas do df_1 nada mais é do que a linha da segunda ocorrência do
                     # valor "data", uma vez que dependendo da aba, esse valor encontra-se em diferentes linhas'''
                     df_1.columns = df_1.iloc[x[1]]
-
+					
 					y = x[1] + 1
 					
                     # removendo as 42 colunas acima que não são necessárias
@@ -342,7 +342,7 @@ if filtro == 'Filtrados':
                     # em seguida, dizemos que as colunas do df_1 nada mais é do que a linha da segunda ocorrência do
                     # valor "data", uma vez que dependendo da aba, esse valor encontra-se em diferentes linhas'''
                     df_1.columns = df_1.iloc[x[1]]
-
+					
 					y = x[1] + 1
 					
                     # removendo as 42 colunas acima que não são necessárias
@@ -475,7 +475,7 @@ if filtro == 'Filtrados':
                     # em seguida, dizemos que as colunas do df_1 nada mais é do que a linha da segunda ocorrência do
                     # valor "data", uma vez que dependendo da aba, esse valor encontra-se em diferentes linhas'''
                     df_1.columns = df_1.iloc[x[1]]
-
+					
 					y = x[1] + 1
 					
                     # removendo as 42 colunas acima que não são necessárias
@@ -609,7 +609,7 @@ if filtro == 'Filtrados':
                     # em seguida, dizemos que as colunas do df_1 nada mais é do que a linha da segunda ocorrência do
                     # valor "data", uma vez que dependendo da aba, esse valor encontra-se em diferentes linhas'''
                     df_1.columns = df_1.iloc[x[1]]
-
+					
 					y = x[1] + 1
 					
                     # removendo as 42 colunas acima que não são necessárias
@@ -753,7 +753,7 @@ if filtro == 'Completos':
                     # em seguida, dizemos que as colunas do df_1 nada mais é do que a linha da segunda ocorrência do
                     # valor "data", uma vez que dependendo da aba, esse valor encontra-se em diferentes linhas'''
                     df_1.columns = df_1.iloc[x[1]]
-
+					
 					y = x[1] + 1
 					
                     # removendo as 42 colunas acima que não são necessárias
@@ -868,7 +868,7 @@ if filtro == 'Completos':
                     # em seguida, dizemos que as colunas do df_1 nada mais é do que a linha da segunda ocorrência do
                     # valor "data", uma vez que dependendo da aba, esse valor encontra-se em diferentes linhas'''
                     df_1.columns = df_1.iloc[x[1]]
-
+					
 					y = x[1] + 1
 					
                     # removendo as 42 colunas acima que não são necessárias
@@ -995,7 +995,7 @@ if filtro == 'Completos':
                     # em seguida, dizemos que as colunas do df_1 nada mais é do que a linha da segunda ocorrência do
                     # valor "data", uma vez que dependendo da aba, esse valor encontra-se em diferentes linhas'''
                     df_1.columns = df_1.iloc[x[1]]
-
+					
 					y = x[1] + 1
 					
                     # removendo as 42 colunas acima que não são necessárias
@@ -1118,7 +1118,7 @@ if filtro == 'Completos':
                     # em seguida, dizemos que as colunas do df_1 nada mais é do que a linha da segunda ocorrência do
                     # valor "data", uma vez que dependendo da aba, esse valor encontra-se em diferentes linhas'''
                     df_1.columns = df_1.iloc[x[1]]
-
+					
 					y = x[1] + 1
 					
                     # removendo as 42 colunas acima que não são necessárias
@@ -1240,7 +1240,7 @@ if filtro == 'Completos':
                     # em seguida, dizemos que as colunas do df_1 nada mais é do que a linha da segunda ocorrência do
                     # valor "data", uma vez que dependendo da aba, esse valor encontra-se em diferentes linhas'''
                     df_1.columns = df_1.iloc[x[1]]
-
+					
 					y = x[1] + 1
 					
                     # removendo as 42 colunas acima que não são necessárias
