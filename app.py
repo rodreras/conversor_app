@@ -80,19 +80,28 @@ if filtro == 'Filtrados':
                     norte = df_1['Unnamed: 2'][9]
 
                     # aplicando o cabecalho
-
-                    # primeiro, buscando o valor data dentro da coluna 2 e colocando as ocorrencias numa lista
+					
+					# primeiro, buscando o valor data dentro da coluna 2 e colocando as ocorrencias numa lista
                     # como há uma ocorrência de data antes, sempre escolheremos o índice 2.'''
-                    x = df_1[df_1['Unnamed: 1'] == 'Data'].index.to_list()
+                    x = df_1[df_1['Unnamed: 1'].isin(['Data',
+													  'DATA E HORA\n(UTC-03:00) Brasilia']
+													)].index.to_list()
 
                     # em seguida, dizemos que as colunas do df_1 nada mais é do que a linha da segunda ocorrência do
                     # valor "data", uma vez que dependendo da aba, esse valor encontra-se em diferentes linhas'''
                     df_1.columns = df_1.iloc[x[1]]
-
-                    y = x[1] + 1
-
+					
+		    y = x[1] + 1
+					
                     # removendo as 42 colunas acima que não são necessárias
                     df_1.drop(index=df_1.index[:y], axis=0, inplace=True)
+					
+					# forçando o renome da coluna de data e hora paara apenas "data" caso seja diferente
+ 
+					if copy.columns[1] == 'DATA E HORA\n(UTC-03:00) Brasilia':
+						copy.rename(columns = {'DATA E HORA\n(UTC-03:00) Brasilia' : 'Data'}, inplace = True)
+					else:
+						pass
 
                     # remover a primeira coluna vazia e também outras possíveis colunas
                     df_1.dropna(how='all', axis=1, inplace=True)
@@ -193,14 +202,25 @@ if filtro == 'Filtrados':
 
                     # primeiro, buscando o valor data dentro da coluna 2 e colocando as ocorrencias numa lista
                     # como há uma ocorrência de data antes, sempre escolheremos o índice 2.'''
-                    x = df_1[df_1['Unnamed: 1'] == 'Data'].index.to_list()
+                    x = df_1[df_1['Unnamed: 1'].isin(['Data',
+													  'DATA E HORA\n(UTC-03:00) Brasilia']
+													)].index.to_list()
 
                     # em seguida, dizemos que as colunas do df_1 nada mais é do que a linha da segunda ocorrência do
                     # valor "data", uma vez que dependendo da aba, esse valor encontra-se em diferentes linhas'''
                     df_1.columns = df_1.iloc[x[1]]
-
+					
+		    y = x[1] + 1
+					
                     # removendo as 42 colunas acima que não são necessárias
-                    df_1.drop(index=df_1.index[:42], axis=0, inplace=True)
+                    df_1.drop(index=df_1.index[:y], axis=0, inplace=True)
+					
+					# forçando o renome da coluna de data e hora paara apenas "data" caso seja diferente
+ 
+					if copy.columns[1] == 'DATA E HORA\n(UTC-03:00) Brasilia':
+						copy.rename(columns = {'DATA E HORA\n(UTC-03:00) Brasilia' : 'Data'}, inplace = True)
+					else:
+						pass
 
                     # remover a primeira coluna vazia e também outras possíveis colunas
                     df_1.dropna(how='all', axis=1, inplace=True)
@@ -313,18 +333,28 @@ if filtro == 'Filtrados':
 
                     # aplicando o cabecalho
 
-                    #primeiro, buscando o valor data dentro da coluna 2 e colocando as ocorrencias numa lista
-                    #como há uma ocorrência de data antes, sempre escolheremos o índice 2.'''
-                    x = df_1[df_1['Unnamed: 1'] == 'Data'].index.to_list()
+                    # primeiro, buscando o valor data dentro da coluna 2 e colocando as ocorrencias numa lista
+                    # como há uma ocorrência de data antes, sempre escolheremos o índice 2.'''
+                    x = df_1[df_1['Unnamed: 1'].isin(['Data',
+													  'DATA E HORA\n(UTC-03:00) Brasilia']
+													)].index.to_list()
 
-                    #em seguida, dizemos que as colunas do df_1 nada mais é do que a linha da segunda ocorrência do
-                    #valor "data", uma vez que dependendo da aba, esse valor encontra-se em diferentes linhas'''
+                    # em seguida, dizemos que as colunas do df_1 nada mais é do que a linha da segunda ocorrência do
+                    # valor "data", uma vez que dependendo da aba, esse valor encontra-se em diferentes linhas'''
                     df_1.columns = df_1.iloc[x[1]]
-
-                    y = x[1] + 1
-
-                    # removendo as linhas acima que não são necessárias
+					
+		    y = x[1] + 1
+					
+                    # removendo as 42 colunas acima que não são necessárias
                     df_1.drop(index=df_1.index[:y], axis=0, inplace=True)
+					
+					# forçando o renome da coluna de data e hora paara apenas "data" caso seja diferente
+ 
+					if copy.columns[1] == 'DATA E HORA\n(UTC-03:00) Brasilia':
+						copy.rename(columns = {'DATA E HORA\n(UTC-03:00) Brasilia' : 'Data'}, inplace = True)
+					else:
+						pass
+
 
                     # remover a primeira coluna vazia e também outras possíveis colunas
                     df_1.dropna(how='all', axis=1, inplace=True)
@@ -410,8 +440,6 @@ if filtro == 'Filtrados':
             linko = f'<a href="data:application/vnd.openxmlformats-officedocument.spreadsheetml.sheet;base64,{b64}" download="SHMS_INA_concatenado.xlsx">📂 Baixar Tabela Concatenada</a>'
             st.markdown(linko, unsafe_allow_html=True)
 
-        # opção para processar os dados de NRs
-
     #opção para processar dados de NRs
     if option == 'NR':
         if uploaded_file is None:
@@ -440,16 +468,26 @@ if filtro == 'Filtrados':
 
                     # primeiro, buscando o valor data dentro da coluna 2 e colocando as ocorrencias numa lista
                     # como há uma ocorrência de data antes, sempre escolheremos o índice 2.'''
-                    x = df_1[df_1['Unnamed: 1'] == 'Data'].index.to_list()
+                    x = df_1[df_1['Unnamed: 1'].isin(['Data',
+													  'DATA E HORA\n(UTC-03:00) Brasilia']
+													)].index.to_list()
 
                     # em seguida, dizemos que as colunas do df_1 nada mais é do que a linha da segunda ocorrência do
                     # valor "data", uma vez que dependendo da aba, esse valor encontra-se em diferentes linhas'''
                     df_1.columns = df_1.iloc[x[1]]
-
-                    y = x[1] + 1
-
-                    # removendo as linhas acima que não são necessárias
+					
+		    y = x[1] + 1
+					
+                    # removendo as 42 colunas acima que não são necessárias
                     df_1.drop(index=df_1.index[:y], axis=0, inplace=True)
+					
+					# forçando o renome da coluna de data e hora paara apenas "data" caso seja diferente
+ 
+					if copy.columns[1] == 'DATA E HORA\n(UTC-03:00) Brasilia':
+						copy.rename(columns = {'DATA E HORA\n(UTC-03:00) Brasilia' : 'Data'}, inplace = True)
+					else:
+						pass
+
 
                     # remover a primeira coluna vazia e também outras possíveis colunas
                     df_1.dropna(how='all', axis=1, inplace=True)
@@ -562,18 +600,28 @@ if filtro == 'Filtrados':
 
                     # aplicando o cabecalho
 
-                    # primeiro, buscando o valor data dentro da coluna 2 e colocando as ocorrencias numa lista
+                   # primeiro, buscando o valor data dentro da coluna 2 e colocando as ocorrencias numa lista
                     # como há uma ocorrência de data antes, sempre escolheremos o índice 2.'''
-                    x = df_1[df_1['Unnamed: 1'] == 'Data'].index.to_list()
+                    x = df_1[df_1['Unnamed: 1'].isin(['Data',
+													  'DATA E HORA\n(UTC-03:00) Brasilia']
+													)].index.to_list()
 
                     # em seguida, dizemos que as colunas do df_1 nada mais é do que a linha da segunda ocorrência do
                     # valor "data", uma vez que dependendo da aba, esse valor encontra-se em diferentes linhas'''
                     df_1.columns = df_1.iloc[x[1]]
-
-                    y = x[1] + 1
-
-                    # removendo as linhas acima que não são necessárias
+					
+		    y = x[1] + 1
+					
+                    # removendo as 42 colunas acima que não são necessárias
                     df_1.drop(index=df_1.index[:y], axis=0, inplace=True)
+					
+					# forçando o renome da coluna de data e hora paara apenas "data" caso seja diferente
+ 
+					if copy.columns[1] == 'DATA E HORA\n(UTC-03:00) Brasilia':
+						copy.rename(columns = {'DATA E HORA\n(UTC-03:00) Brasilia' : 'Data'}, inplace = True)
+					else:
+						pass
+
 
                     # remover a primeira coluna vazia e também outras possíveis colunas
                     df_1.dropna(how='all', axis=1, inplace=True)
@@ -696,18 +744,28 @@ if filtro == 'Completos':
 
                     #aplicando o cabecalho
 
-                    #primeiro, buscando o valor data dentro da coluna 2 e colocando as ocorrencias numa lista
-                    #como há uma ocorrência de data antes, sempre escolheremos o índice 2.'''
-                    x = df_1[df_1['Unnamed: 1'] == 'Data'].index.to_list()
+                    # primeiro, buscando o valor data dentro da coluna 2 e colocando as ocorrencias numa lista
+                    # como há uma ocorrência de data antes, sempre escolheremos o índice 2.'''
+                    x = df_1[df_1['Unnamed: 1'].isin(['Data',
+													  'DATA E HORA\n(UTC-03:00) Brasilia']
+													)].index.to_list()
 
-                    #em seguida, dizemos que as colunas do df_1 nada mais é do que a linha da segunda ocorrência do
+                    # em seguida, dizemos que as colunas do df_1 nada mais é do que a linha da segunda ocorrência do
                     # valor "data", uma vez que dependendo da aba, esse valor encontra-se em diferentes linhas'''
                     df_1.columns = df_1.iloc[x[1]]
+		    
+		    y = x[1] + 1
+					
+                    # removendo as 42 colunas acima que não são necessárias
+                    df_1.drop(index=df_1.index[:y], axis=0, inplace=True)
+					
+					# forçando o renome da coluna de data e hora paara apenas "data" caso seja diferente
+ 
+					if copy.columns[1] == 'DATA E HORA\n(UTC-03:00) Brasilia':
+						copy.rename(columns = {'DATA E HORA\n(UTC-03:00) Brasilia' : 'Data'}, inplace = True)
+					else:
+						pass
 
-                    y = x[1]+1
-
-                     #removendo as 42 colunas acima que não são necessárias
-                    df_1.drop(index = df_1.index[:y], axis = 0, inplace = True)
 
                     #remover a primeira coluna vazia e também outras possíveis colunas
                     df_1.dropna(how='all', axis=1, inplace=True)
@@ -801,16 +859,27 @@ if filtro == 'Completos':
 
                     #aplicando o cabecalho
 
-                    #primeiro, buscando o valor data dentro da coluna 2 e colocando as ocorrencias numa lista
-                    #como há uma ocorrência de data antes, sempre escolheremos o índice 2.'''
-                    x = df_1[df_1['Unnamed: 1'] == 'Data'].index.to_list()
+                    # primeiro, buscando o valor data dentro da coluna 2 e colocando as ocorrencias numa lista
+                    # como há uma ocorrência de data antes, sempre escolheremos o índice 2.'''
+                    x = df_1[df_1['Unnamed: 1'].isin(['Data',
+													  'DATA E HORA\n(UTC-03:00) Brasilia']
+													)].index.to_list()
 
-                    #em seguida, dizemos que as colunas do df_1 nada mais é do que a linha da segunda ocorrência do
-                    #valor "data", uma vez que dependendo da aba, esse valor encontra-se em diferentes linhas'''
+                    # em seguida, dizemos que as colunas do df_1 nada mais é do que a linha da segunda ocorrência do
+                    # valor "data", uma vez que dependendo da aba, esse valor encontra-se em diferentes linhas'''
                     df_1.columns = df_1.iloc[x[1]]
-
-                     #removendo as 42 colunas acima que não são necessárias
-                    df_1.drop(index = df_1.index[:42], axis = 0, inplace = True)
+					
+		    y = x[1] + 1
+					
+                    # removendo as 42 colunas acima que não são necessárias
+                    df_1.drop(index=df_1.index[:y], axis=0, inplace=True)
+					
+					# forçando o renome da coluna de data e hora paara apenas "data" caso seja diferente
+ 
+					if copy.columns[1] == 'DATA E HORA\n(UTC-03:00) Brasilia':
+						copy.rename(columns = {'DATA E HORA\n(UTC-03:00) Brasilia' : 'Data'}, inplace = True)
+					else:
+						pass
 
                     #remover a primeira coluna vazia e também outras possíveis colunas
                     df_1.dropna(how='all', axis=1, inplace=True)
@@ -917,18 +986,27 @@ if filtro == 'Completos':
 
                     # aplicando o cabecalho
 
-                    #primeiro, buscando o valor data dentro da coluna 2 e colocando as ocorrencias numa lista
-                    #como há uma ocorrência de data antes, sempre escolheremos o índice 2.'''
-                    x = df_1[df_1['Unnamed: 1'] == 'Data'].index.to_list()
+                    # primeiro, buscando o valor data dentro da coluna 2 e colocando as ocorrencias numa lista
+                    # como há uma ocorrência de data antes, sempre escolheremos o índice 2.'''
+                    x = df_1[df_1['Unnamed: 1'].isin(['Data',
+													  'DATA E HORA\n(UTC-03:00) Brasilia']
+													)].index.to_list()
 
-                    #em seguida, dizemos que as colunas do df_1 nada mais é do que a linha da segunda ocorrência do
-                    #valor "data", uma vez que dependendo da aba, esse valor encontra-se em diferentes linhas'''
+                    # em seguida, dizemos que as colunas do df_1 nada mais é do que a linha da segunda ocorrência do
+                    # valor "data", uma vez que dependendo da aba, esse valor encontra-se em diferentes linhas'''
                     df_1.columns = df_1.iloc[x[1]]
-
-                    y = x[1] + 1
-
-                    # removendo as linhas acima que não são necessárias
+					
+		    y = x[1] + 1
+					
+                    # removendo as 42 colunas acima que não são necessárias
                     df_1.drop(index=df_1.index[:y], axis=0, inplace=True)
+					
+					# forçando o renome da coluna de data e hora paara apenas "data" caso seja diferente
+ 
+					if copy.columns[1] == 'DATA E HORA\n(UTC-03:00) Brasilia':
+						copy.rename(columns = {'DATA E HORA\n(UTC-03:00) Brasilia' : 'Data'}, inplace = True)
+					else:
+						pass
 
                     # remover a primeira coluna vazia e também outras possíveis colunas
                     df_1.dropna(how='all', axis=1, inplace=True)
@@ -1033,16 +1111,26 @@ if filtro == 'Completos':
 
                     # primeiro, buscando o valor data dentro da coluna 2 e colocando as ocorrencias numa lista
                     # como há uma ocorrência de data antes, sempre escolheremos o índice 2.'''
-                    x = df_1[df_1['Unnamed: 1'] == 'Data'].index.to_list()
+                    x = df_1[df_1['Unnamed: 1'].isin(['Data',
+													  'DATA E HORA\n(UTC-03:00) Brasilia']
+													)].index.to_list()
 
                     # em seguida, dizemos que as colunas do df_1 nada mais é do que a linha da segunda ocorrência do
                     # valor "data", uma vez que dependendo da aba, esse valor encontra-se em diferentes linhas'''
                     df_1.columns = df_1.iloc[x[1]]
-
-                    y = x[1] + 1
-
-                    # removendo as linhas acima que não são necessárias
+					
+		    y = x[1] + 1
+					
+                    # removendo as 42 colunas acima que não são necessárias
                     df_1.drop(index=df_1.index[:y], axis=0, inplace=True)
+					
+					# forçando o renome da coluna de data e hora paara apenas "data" caso seja diferente
+ 
+					if copy.columns[1] == 'DATA E HORA\n(UTC-03:00) Brasilia':
+						copy.rename(columns = {'DATA E HORA\n(UTC-03:00) Brasilia' : 'Data'}, inplace = True)
+					else:
+						pass
+
 
                     # remover a primeira coluna vazia e também outras possíveis colunas
                     df_1.dropna(how='all', axis=1, inplace=True)
@@ -1143,18 +1231,28 @@ if filtro == 'Completos':
 
                     # aplicando o cabecalho
 
-                    # primeiro, buscando o valor data dentro da coluna 2 e colocando as ocorrencias numa lista
+                   # primeiro, buscando o valor data dentro da coluna 2 e colocando as ocorrencias numa lista
                     # como há uma ocorrência de data antes, sempre escolheremos o índice 2.'''
-                    x = df_1[df_1['Unnamed: 1'] == 'Data'].index.to_list()
+                    x = df_1[df_1['Unnamed: 1'].isin(['Data',
+													  'DATA E HORA\n(UTC-03:00) Brasilia']
+													)].index.to_list()
 
                     # em seguida, dizemos que as colunas do df_1 nada mais é do que a linha da segunda ocorrência do
                     # valor "data", uma vez que dependendo da aba, esse valor encontra-se em diferentes linhas'''
                     df_1.columns = df_1.iloc[x[1]]
-
-                    y = x[1] + 1
-
-                    # removendo as linhas acima que não são necessárias
+					
+	            y = x[1] + 1
+					
+                    # removendo as 42 colunas acima que não são necessárias
                     df_1.drop(index=df_1.index[:y], axis=0, inplace=True)
+					
+					# forçando o renome da coluna de data e hora paara apenas "data" caso seja diferente
+ 
+					if copy.columns[1] == 'DATA E HORA\n(UTC-03:00) Brasilia':
+						copy.rename(columns = {'DATA E HORA\n(UTC-03:00) Brasilia' : 'Data'}, inplace = True)
+					else:
+						pass
+
 
                     # remover a primeira coluna vazia e também outras possíveis colunas
                     df_1.dropna(how='all', axis=1, inplace=True)
