@@ -7,10 +7,15 @@ import datetime
 import time
 import streamlit as st
 import traceback
-import os
-import glob
+import os, glob, shutil
 import base64
 import io 
+
+#funcoes
+def deletando_pasta(pasta):
+    print('Deletando os arquivos')
+    shutil.rmtree(pasta)
+    os.mkdir(pasta)
 
 #configurando a página
 st.set_page_config(page_title = 'MDGeo SHMS Converter')
@@ -35,7 +40,7 @@ ou fazer um filtro de acordo com datas. Para maiores informações, [acesse o ma
 
 #colocando opção de escolha para processamento dos dados
 
-me1, me2 = st.beta_columns(2)
+me1, me2 = st.columns(2)
 option = me1.radio('Que tipo de dado você quer processar?', ['PZE','PZC', 'INAs','MNA','NR'])
 filtro = me2.radio('Você quer baixar os dados filtrados ou completos?', ['Completos','Filtrados'])
 
@@ -69,7 +74,7 @@ if filtro == 'Filtrados':
             xlsx = pd.ExcelFile(uploaded_file)
 
             sheets = xlsx.sheet_names
-
+            deletando_pasta('pzc')
             for index, item in enumerate(sheets):
                 try:
                     # fazendo um dataframe para cada aba presente na planilha
@@ -188,7 +193,8 @@ if filtro == 'Filtrados':
             xlsx = pd.ExcelFile(uploaded_file)
 
             sheets = xlsx.sheet_names
-
+            #removendo possiveis arquivos antigos
+            deletando_pasta('instrumentos')
             for index, item in enumerate(sheets):
                 try:
                     # fazendo um dataframe para cada aba presente na planilha
@@ -319,7 +325,7 @@ if filtro == 'Filtrados':
             xlsx = pd.ExcelFile(uploaded_file)
 
             sheets = xlsx.sheet_names
-
+            deletando_pasta('inas')
             for index, item in enumerate(sheets):
                 try:
                     # fazendo um dataframe para cada aba presente na planilha
@@ -451,7 +457,7 @@ if filtro == 'Filtrados':
             xlsx = pd.ExcelFile(uploaded_file)
 
             sheets = xlsx.sheet_names
-
+            deletando_pasta('nr')
             for index, item in enumerate(sheets):
                 try:
                     # fazendo um dataframe para cada aba presente na planilha
@@ -582,6 +588,7 @@ if filtro == 'Filtrados':
             xlsx = pd.ExcelFile(uploaded_file)
 
             sheets = xlsx.sheet_names
+            deletando_pasta('mna')
 
             for index, item in enumerate(sheets):
                 try:
@@ -724,6 +731,7 @@ if filtro == 'Completos':
             xlsx = pd.ExcelFile(uploaded_file)
 
             sheets = xlsx.sheet_names
+            deletando_pasta('pzc')
 
             for index, item in enumerate(sheets):
                 try:
@@ -837,6 +845,8 @@ if filtro == 'Completos':
             xlsx = pd.ExcelFile(uploaded_file)
 
             sheets = xlsx.sheet_names
+
+            deletando_pasta('instrumentos')
 
             for index, item in enumerate(sheets):
                 try:
@@ -957,7 +967,7 @@ if filtro == 'Completos':
             xlsx = pd.ExcelFile(uploaded_file)
 
             sheets = xlsx.sheet_names
-
+            deletando_pasta('inas')
             for index, item in enumerate(sheets):
                 try:
                     # fazendo um dataframe para cada aba presente na planilha
@@ -1079,6 +1089,7 @@ if filtro == 'Completos':
             xlsx = pd.ExcelFile(uploaded_file)
 
             sheets = xlsx.sheet_names
+            deletando_pasta('nr')
 
             for index, item in enumerate(sheets):
                 try:
@@ -1199,7 +1210,7 @@ if filtro == 'Completos':
             xlsx = pd.ExcelFile(uploaded_file)
 
             sheets = xlsx.sheet_names
-
+            deletando_pasta('mna')
             for index, item in enumerate(sheets):
                 try:
                     # fazendo um dataframe para cada aba presente na planilha
@@ -1339,5 +1350,5 @@ st.sidebar.markdown('''
 #título sobre o código
 st.sidebar.title("Código")
 st.sidebar.markdown("[![Github Badge] (https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white&link=https://github.com/rodreras)](https://github.com/rodreras/conversor_app)")
-st.sidebar.markdown(''' _Versão: 0.3''')
-st.sidebar.markdown('''_26/08/2021_ ''')
+st.sidebar.markdown(''' _Versão: 0.4_''')
+st.sidebar.markdown('''01/09/2021_ ''')
